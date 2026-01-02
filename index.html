@@ -12,21 +12,51 @@
             background-color: #375239;
             min-height: 100vh;
             position: relative;
+            overflow-x: hidden; /* Чтобы не было горизонтального скролла */
         }
         
         .center-image {
             width: 100%;
             height: 100vh;
             object-fit: cover;
-            position: absolute;
-            z-index: 1;
+            position: fixed; /* Фиксируем фон */
+            top: 0;
+            left: 0;
+            z-index: 1; /* Фон должен быть ПОД кнопками */
         }
+        
     </style>
 </head>
 <body>
     <img src="заповедник/фон.jpg" class="center-image" alt="Фоновое изображение">
     
-    <!-- Гамбургер меню для телефонов -->
+    <!-- Контейнер для кнопок -->
+    <div class="buttons-container">
+        <!-- Обычные кнопки (видны на ПК, скрыты на телефоне) -->
+        <a href="навигация.html" class="image-button1">
+            <img src="заповедник/кнопка1.jpg" alt="Навигация">
+        </a>
+        
+        <a href="https://web.telegram.org/k/#@programmmiist?text=Здравствуйте!%20Хочу%20записаться%20на%20экскурсию." 
+           class="image-button2" 
+           target="_blank">
+            <img src="заповедник/кнопка2.jpg" alt="Записаться на экскурсию">
+        </a>
+        
+        <a href="стать_волонтёром.html" class="image-button3">
+            <img src="заповедник/кнопка3.jpg" alt="Стать волонтёром">
+        </a>
+        
+        <a href="поддержать_проект.html" class="image-button4">
+            <img src="заповедник/кнопка4.jpg" alt="Поддержать проект">
+        </a>
+        
+        <a href="нашиживотные.html" class="image-button6">
+            <img src="заповедник/кнопка6.jpg" alt="Наши животные">
+        </a>
+    </div>
+    
+    <!-- Гамбургер меню для телефонов (скрыто на ПК) -->
     <div class="hamburger-menu">
         <button class="hamburger-btn" id="hamburgerBtn">
             <span class="hamburger-line"></span>
@@ -54,72 +84,51 @@
         </div>
     </div>
     
-    <!-- Обычные кнопки (видны на ПК) -->
-    <a href="навигация.html" class="image-button1">
-        <img src="заповедник/кнопка1.jpg" alt="Навигация">
-    </a>
-    
-    <a href="https://web.telegram.org/k/#@programmmiist?text=Здравствуйте!%20Хочу%20записаться%20на%20экскурсию." 
-       class="image-button2" 
-       target="_blank">
-        <img src="заповедник/кнопка2.jpg" alt="Записаться на экскурсию">
-    </a>
-    
-    <a href="стать_волонтёром.html" class="image-button3">
-        <img src="заповедник/кнопка3.jpg" alt="Стать волонтёром">
-    </a>
-    
-    <a href="поддержать_проект.html" class="image-button4">
-        <img src="заповедник/кнопка4.jpg" alt="Поддержать проект">
-    </a>
-    
-    <a href="нашиживотные.html" class="image-button6">
-        <img src="заповедник/кнопка6.jpg" alt="Наши животные">
-    </a>
-    
     <script>
         // Управление гамбургер-меню
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const dropdownMenu = document.getElementById('dropdownMenu');
         
-        hamburgerBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('show');
-            
-            // Анимация гамбургера в крестик
-            const lines = document.querySelectorAll('.hamburger-line');
-            if (dropdownMenu.classList.contains('show')) {
-                lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-                lines[1].style.opacity = '0';
-                lines[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-            } else {
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
-            }
-        });
-        
-        // Закрытие меню при клике вне его
-        document.addEventListener('click', function(event) {
-            if (!hamburgerBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                dropdownMenu.classList.remove('show');
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+                
+                // Анимация гамбургера в крестик
                 const lines = document.querySelectorAll('.hamburger-line');
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
-            }
-        });
-        
-        // Закрытие меню при клике на пункт
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
-                dropdownMenu.classList.remove('show');
-                const lines = document.querySelectorAll('.hamburger-line');
-                lines[0].style.transform = 'none';
-                lines[1].style.opacity = '1';
-                lines[2].style.transform = 'none';
+                if (dropdownMenu.classList.contains('show')) {
+                    lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    lines[1].style.opacity = '0';
+                    lines[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    lines[0].style.transform = 'none';
+                    lines[1].style.opacity = '1';
+                    lines[2].style.transform = 'none';
+                }
             });
-        });
+            
+            // Закрытие меню при клике вне его
+            document.addEventListener('click', function(event) {
+                if (!hamburgerBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove('show');
+                    const lines = document.querySelectorAll('.hamburger-line');
+                    lines[0].style.transform = 'none';
+                    lines[1].style.opacity = '1';
+                    lines[2].style.transform = 'none';
+                }
+            });
+            
+            // Закрытие меню при клике на пункт
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    dropdownMenu.classList.remove('show');
+                    const lines = document.querySelectorAll('.hamburger-line');
+                    lines[0].style.transform = 'none';
+                    lines[1].style.opacity = '1';
+                    lines[2].style.transform = 'none';
+                });
+            });
+        }
     </script>
 </body>
 </html>
