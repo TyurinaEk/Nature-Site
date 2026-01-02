@@ -7,9 +7,8 @@
     padding: 0;
     cursor: pointer;
     transition: transform 0.3s;
-    display: inline-block;
-    text-decoration: none;
-    z-index: 10;
+    display: inline-block; /* важно для ссылок */
+    text-decoration: none; /* убрать подчёркивание */
 }
 
 /* Ховер и актив для всех */
@@ -42,15 +41,15 @@
     .image-button1 img, .image-button2 img, 
     .image-button3 img, .image-button4 img, 
     .image-button6 img {
-        width: 130px;
+        width: 130px; /* Размер для ПК */
     }
     .image-button5 img {
-        width: 350px;
+        width: 350px; /* Большая кнопка "назад" для ПК */
     }
     /* Высота для ПК */
     .image-button1, .image-button2, .image-button3, 
     .image-button4, .image-button6 {
-        top: 20px;
+        top: 20px; /* Фиксированная высота для ПК */
     }
 }
 
@@ -59,7 +58,7 @@
     .image-button1 img, .image-button2 img, 
     .image-button3 img, .image-button4 img, 
     .image-button6 img {
-        width: 100px;
+        width: 100px; /* Чуть меньше */
     }
     .image-button5 img {
         width: 280px;
@@ -71,22 +70,12 @@
     }
 }
 
-/* ТОЛЬКО для главной страницы на телефонах - скрываем обычные кнопки */
+/* Для телефонов (маленькие экраны) */
 @media (max-width: 767px) {
-    /* На главной странице скрываем обычные кнопки на телефонах */
-    body:not(.other-page) .image-button1,
-    body:not(.other-page) .image-button2,
-    body:not(.other-page) .image-button3,
-    body:not(.other-page) .image-button4,
-    body:not(.other-page) .image-button6 {
-        display: none !important;
-    }
-    
-    /* Для других страниц оставляем кнопки как есть */
     .image-button1 img, .image-button2 img, 
     .image-button3 img, .image-button4 img, 
     .image-button6 img {
-        width: 60px;
+        width: 60px; /* Маленькие для телефона */
     }
     .image-button5 img {
         width: 200px;
@@ -95,7 +84,7 @@
     /* Относительная высота для телефонов */
     .image-button1, .image-button2, .image-button3, 
     .image-button4, .image-button6 {
-        top: 3vh;
+        top: 3vh; /* 3% от высоты экрана */
     }
     
     /* На телефоне делаем кнопки вертикально или ближе */
@@ -120,7 +109,7 @@
     /* Меньшая высота на очень маленьких экранах */
     .image-button1, .image-button2, .image-button3, 
     .image-button4, .image-button6 {
-        top: 2vh;
+        top: 2vh; /* 2% от высоты экрана */
     }
 }
 
@@ -146,25 +135,25 @@
 /* Высота кнопки "назад" для разных устройств */
 @media (min-width: 1024px) {
     .image-button5 {
-        top: 30px;
+        top: 30px; /* Для ПК */
     }
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
     .image-button5 {
-        top: 25px;
+        top: 25px; /* Для планшетов */
     }
 }
 
 @media (max-width: 767px) {
     .image-button5 {
-        top: 4vh;
+        top: 4vh; /* 4% от высоты экрана на телефоне */
     }
 }
 
 @media (max-width: 480px) {
     .image-button5 {
-        top: 3vh;
+        top: 3vh; /* 3% от высоты экрана на маленьких телефонах */
     }
 }
 
@@ -180,7 +169,7 @@
 .rotating-image {
     animation: spinAndPulse 4s ease-in-out infinite;
     position: absolute;
-    top: 50%;
+    top: 50%; /* Остаётся по центру */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -203,40 +192,43 @@
 /* Размеры вращающегося изображения для разных устройств */
 @media (min-width: 1200px) {
     .rotating-image {
-        width: 150px;
+        width: 150px; /* Большой размер на ПК */
     }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
     .rotating-image {
-        width: 100px;
+        width: 100px; /* Средний размер */
     }
 }
 
 @media (max-width: 767px) {
     .rotating-image {
-        width: 70px;
+        width: 70px; /* Маленький на телефоне */
     }
 }
 
-@media (max-width: 480px) {
-    .rotating-image {
-        width: 50px;
-    }
-}
+@media (max-width: 480px) {/* Добавляем в самый конец файла style.css: */
 
-/* ===== СТИЛИ ГАМБУРГЕР МЕНЮ (только для главной на телефонах) ===== */
-
-/* По умолчанию гамбургер скрыт */
+/* Гамбургер меню для телефонов на главной */
 .hamburger-menu {
     display: none;
 }
 
-/* Показываем гамбургер только на телефонах */
 @media (max-width: 767px) {
+    /* На главной странице для телефонов скрываем обычные кнопки */
+    .image-button1,
+    .image-button2,
+    .image-button3,
+    .image-button4,
+    .image-button6 {
+        display: none !important;
+    }
+    
+    /* Показываем гамбургер меню */
     .hamburger-menu {
         display: block;
-        position: fixed;
+        position: absolute;
         top: 20px;
         left: 20px;
         z-index: 1000;
@@ -321,7 +313,6 @@
     }
 }
 
-/* Для очень маленьких телефонов */
 @media (max-width: 480px) {
     .hamburger-btn {
         width: 45px;
@@ -332,3 +323,10 @@
         min-width: 180px;
     }
 }
+    .rotating-image {
+        width: 50px; /* Очень маленький */
+    }
+}
+
+
+
