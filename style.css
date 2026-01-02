@@ -1,0 +1,215 @@
+/* Общие стили для ВСЕХ кнопок */
+.image-button1, .image-button2, .image-button3, 
+.image-button4, .image-button6, .image-button5 {
+    position: absolute;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: inline-block; /* важно для ссылок */
+    text-decoration: none; /* убрать подчёркивание */
+}
+
+/* Ховер и актив для всех */
+.image-button1:hover, .image-button2:hover, 
+.image-button3:hover, .image-button4:hover, 
+.image-button6:hover, .image-button5:hover {
+    transform: scale(1.05);
+}
+
+.image-button1:active, .image-button2:active, 
+.image-button3:active, .image-button4:active, 
+.image-button6:active, .image-button5:active {
+    transform: scale(0.95);
+}
+
+/* Общие стили для картинок */
+.image-button1 img, .image-button2 img, 
+.image-button3 img, .image-button4 img, 
+.image-button6 img, .image-button5 img {
+    height: auto;
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* РАЗМЕРЫ КНОПОК И ВЫСОТА - АДАПТИВНЫЕ */
+
+/* Для компьютеров (большие экраны) */
+@media (min-width: 1024px) {
+    .image-button1 img, .image-button2 img, 
+    .image-button3 img, .image-button4 img, 
+    .image-button6 img {
+        width: 130px; /* Размер для ПК */
+    }
+    .image-button5 img {
+        width: 350px; /* Большая кнопка "назад" для ПК */
+    }
+    /* Высота для ПК */
+    .image-button1, .image-button2, .image-button3, 
+    .image-button4, .image-button6 {
+        top: 20px; /* Фиксированная высота для ПК */
+    }
+}
+
+/* Для планшетов (средние экраны) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .image-button1 img, .image-button2 img, 
+    .image-button3 img, .image-button4 img, 
+    .image-button6 img {
+        width: 100px; /* Чуть меньше */
+    }
+    .image-button5 img {
+        width: 280px;
+    }
+    /* Высота для планшетов */
+    .image-button1, .image-button2, .image-button3, 
+    .image-button4, .image-button6 {
+        top: 15px;
+    }
+}
+
+/* Для телефонов (маленькие экраны) */
+@media (max-width: 767px) {
+    .image-button1 img, .image-button2 img, 
+    .image-button3 img, .image-button4 img, 
+    .image-button6 img {
+        width: 60px; /* Маленькие для телефона */
+    }
+    .image-button5 img {
+        width: 200px;
+    }
+    
+    /* Относительная высота для телефонов */
+    .image-button1, .image-button2, .image-button3, 
+    .image-button4, .image-button6 {
+        top: 20vh; /* 3% от высоты экрана */
+    }
+    
+    /* На телефоне делаем кнопки вертикально или ближе */
+    .image-button1 { left: 5%; }
+    .image-button2 { left: 25%; }
+    .image-button3 { left: 45%; }
+    .image-button4 { left: 65%; }
+    .image-button6 { left: 85%; }
+}
+
+/* Для очень маленьких телефонов */
+@media (max-width: 480px) {
+    .image-button1 img, .image-button2 img, 
+    .image-button3 img, .image-button4 img, 
+    .image-button6 img {
+        width: 50px;
+    }
+    .image-button5 img {
+        width: 180px;
+    }
+    
+    /* Меньшая высота на очень маленьких экранах */
+    .image-button1, .image-button2, .image-button3, 
+    .image-button4, .image-button6 {
+        top: 2vh; /* 2% от высоты экрана */
+    }
+}
+
+/* Только уникальные свойства позиционирования для ПК */
+@media (min-width: 768px) {
+    .image-button1 { left: 26%; }
+    .image-button2 { left: 36%; }
+    .image-button3 { left: 46%; }
+    .image-button4 { left: 56%; }
+    .image-button6 { left: 66%; }
+}
+
+/* Для первой кнопки другой радиус */
+.image-button1 img { border-radius: 40px; }
+
+/* Кнопка 5 (центр) - АДАПТИВНАЯ ВЫСОТА */
+.image-button5 {
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Высота кнопки "назад" для разных устройств */
+@media (min-width: 1024px) {
+    .image-button5 {
+        top: 30px; /* Для ПК */
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
+    .image-button5 {
+        top: 25px; /* Для планшетов */
+    }
+}
+
+@media (max-width: 767px) {
+    .image-button5 {
+        top: 4vh; /* 4% от высоты экрана на телефоне */
+    }
+}
+
+@media (max-width: 480px) {
+    .image-button5 {
+        top: 3vh; /* 3% от высоты экрана на маленьких телефонах */
+    }
+}
+
+.image-button5:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.image-button5:active {
+    transform: translateX(-50%) scale(0.95);
+}
+
+/* Вращающееся изображение с адаптивной высотой */
+.rotating-image {
+    animation: spinAndPulse 4s ease-in-out infinite;
+    position: absolute;
+    top: 50%; /* Остаётся по центру */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transform-origin: center center;
+}
+
+/* Анимация */
+@keyframes spinAndPulse {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(0.8);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.5);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(0.8);
+    }
+}
+
+/* Размеры вращающегося изображения для разных устройств */
+@media (min-width: 1200px) {
+    .rotating-image {
+        width: 150px; /* Большой размер на ПК */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .rotating-image {
+        width: 100px; /* Средний размер */
+    }
+}
+
+@media (max-width: 767px) {
+    .rotating-image {
+        width: 70px; /* Маленький на телефоне */
+    }
+}
+
+@media (max-width: 480px) {
+    .rotating-image {
+        width: 50px; /* Очень маленький */
+    }
+}

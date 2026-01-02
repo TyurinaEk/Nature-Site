@@ -1,0 +1,169 @@
+.rotating-image {
+    animation: spinAndPulse 4s ease-in-out infinite;
+    width: 30px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    transform-origin: center center;
+}
+
+@keyframes spinAndPulse {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg) scale(0.8);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.5);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg) scale(0.8);
+    }
+}
+
+.image-button5{
+    position: absolute;
+    top: 10px;    /* поставь свои координаты */
+    left: 70px;   /* поставь свои координаты */
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 1000 !important;
+
+    
+}
+
+.image-button5:hover {
+    transform: scale(1.05);
+}
+
+.image-button5:active {
+    transform: scale(0.95);
+}
+
+.image-button5 img {
+    width: 30px;        /* РАЗМЕР КНОПКИ */
+    height: auto;        /* пропорции */
+    display: block;
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.image-button6{
+    position: absolute;
+    top: 10px;    /* поставь свои координаты */
+    left: 120px;   /* поставь свои координаты */
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 1000 !important;
+
+    
+}
+
+.image-button6:hover {
+    transform: scale(1.05);
+}
+
+.image-button6:active {
+    transform: scale(0.95);
+}
+
+.image-button6 img {
+    width: 30px;        /* РАЗМЕР КНОПКИ */
+    height: auto;        /* пропорции */
+    display: block;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.image-button7{
+    position: absolute;
+    top: 10px;    /* поставь свои координаты */
+    left: 170px;   /* поставь свои координаты */
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 1000 !important;
+
+    
+}
+
+.image-button7:hover {
+    transform: scale(1.05);
+}
+
+.image-button7:active {
+    transform: scale(0.95);
+}
+
+.image-button7 img {
+    width: 32px;        /* РАЗМЕР КНОПКИ */
+    height: auto;        /* пропорции */
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.image-button8{
+    position: absolute;
+    top: 10px;    /* поставь свои координаты */
+    left: 220px;   /* поставь свои координаты */
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 1000 !important;
+
+    
+}
+
+.image-button8:hover {
+    transform: scale(1.05);
+}
+
+.image-button8:active {
+    transform: scale(0.95);
+}
+
+.image-button8 img {
+    width: 32px;        /* РАЗМЕР КНОПКИ */
+    height: auto;        /* пропорции */
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.image-button9{
+    position: absolute;
+    top: 10px;    /* поставь свои координаты */
+    left: 270px;   /* поставь свои координаты */
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
+    z-index: 1000 !important;
+
+    
+}
+
+.image-button9:hover {
+    transform: scale(1.05);
+}
+
+.image-button9:active {
+    transform: scale(0.95);
+}
+
+.image-button9 img {
+    width: 32px;        /* РАЗМЕР КНОПКИ */
+    height: auto;        /* пропорции */
+    display: block;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}

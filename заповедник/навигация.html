@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link type = "text/css" rel = "stylesheet" href = "style2.css">
+    <title>навигация</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color:#184D1B;
+            min-height: 100vh;
+            /* УБРАТЬ FLEX! */
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            position: relative; /* важно для absolute детей */
+        }
+        
+        .center-image {
+            max-width: 100%;  /* Не больше ширины экрана */
+            max-height: 100vh; /* Не больше высоты экрана */
+            width: auto;
+            height: auto;
+            display: block;
+            position: absolute; /* фон на задний план */
+            z-index: 1;
+        }
+ 
+       
+    </style>
+</head>
+<body>
+    <img src="фон2.jpg" class="center-image" alt="Фоновое изображение">
+    <img src="дерево.jpg" class="rotating-image" alt="Вращающееся фото">
+    <button class="image-button5">
+        <img src="озаповеднике.jpg" alt="Кнопка 5">
+    </button>
+    <button class="image-button6">
+        <img src="посетителям.jpg" alt="Кнопка 6">
+    </button> 
+    <button class="image-button7">
+        <img src="наука.jpg" alt="Кнопка 7">
+    </button> 
+    <button class="image-button8">
+        <img src="адрес.jpg" alt="Кнопка 8">
+    </button> 
+    <button class="image-button9">
+        <img src="безопасность.jpg" alt="Кнопка 9">
+    </button>   
+</body>
+</html>
