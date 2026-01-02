@@ -8,28 +8,34 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    overflow-x: hidden;
 }
 
 .center-image {
-    max-width: 100%;
-    max-height: 100vh;
-    width: auto;
-    height: auto;
-    display: block;
-    position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 1;
 }
 
 /* ===== КОНТЕЙНЕР ДЛЯ КНОПОК НА ПК ===== */
 .desktop-buttons {
-    position: relative;
-    z-index: 10;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
 }
 
 /* ===== ОБЩИЕ СТИЛИ КНОПОК ===== */
@@ -37,6 +43,7 @@ body {
 .image-button4, .image-button6 {
     transition: transform 0.3s;
     text-decoration: none;
+    display: inline-block;
 }
 
 .image-button1:hover, .image-button2:hover, 
@@ -57,7 +64,12 @@ body {
     height: auto;
     display: block;
     border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    width: 150px;
+}
+
+.image-button1 img { 
+    border-radius: 40px; 
 }
 
 /* ===== ДЛЯ ПК (768px И БОЛЬШЕ) ===== */
@@ -68,18 +80,14 @@ body {
         width: 150px;
     }
     
-    .image-button1 img { 
-        border-radius: 40px; 
-    }
-    
     /* Скрываем гамбургер на ПК */
     .hamburger-menu {
-        display: none;
+        display: none !important;
     }
     
     /* Показываем кнопки на ПК */
     .desktop-buttons {
-        display: flex;
+        display: flex !important;
     }
 }
 
@@ -87,19 +95,12 @@ body {
 @media (max-width: 768px) {
     /* Скрываем обычные кнопки */
     .desktop-buttons {
-        display: none;
-    }
-    
-    /* Размеры кнопок для телефонов (для других страниц) */
-    .image-button1 img, .image-button2 img, 
-    .image-button3 img, .image-button4 img, 
-    .image-button6 img {
-        width: 80px;
+        display: none !important;
     }
     
     /* Показываем гамбургер */
     .hamburger-menu {
-        display: block;
+        display: block !important;
         position: fixed;
         top: 20px;
         right: 20px;
@@ -195,82 +196,4 @@ body {
     .dropdown-menu {
         min-width: 180px;
     }
-    
-    .image-button1 img, .image-button2 img, 
-    .image-button3 img, .image-button4 img, 
-    .image-button6 img {
-        width: 60px;
-    }
 }
-
-/* ===== СТИЛИ ДЛЯ ДРУГИХ СТРАНИЦ ===== */
-.image-button5 {
-    position: absolute;
-    border: none;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    transition: transform 0.3s;
-    display: inline-block;
-    text-decoration: none;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-}
-
-.image-button5:hover {
-    transform: translateX(-50%) scale(1.05);
-}
-
-.image-button5:active {
-    transform: translateX(-50%) scale(0.95);
-}
-
-.image-button5 img {
-    height: auto;
-    display: block;
-    border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-/* Размеры кнопки 5 для разных устройств */
-@media (min-width: 769px) {
-    .image-button5 img {
-        width: 350px;
-    }
-}
-
-@media (max-width: 768px) {
-    .image-button5 img {
-        width: 250px;
-    }
-}
-
-@media (max-width: 480px) {
-    .image-button5 img {
-        width: 200px;
-    }
-}
-
-/* Вращающееся изображение */
-.rotating-image {
-    animation: spinAndPulse 4s ease-in-out infinite;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-    transform-origin: center center;
-}
-
-@keyframes spinAndPulse {
-    0% { transform: translate(-50%, -50%) rotate(0deg) scale(0.8); }
-    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.5); }
-    100% { transform: translate(-50%, -50%) rotate(360deg) scale(0.8); }
-}
-
-/* Размеры вращающегося изображения */
-@media (min-width: 1200px) { .rotating-image { width: 150px; } }
-@media (min-width: 768px) and (max-width: 1199px) { .rotating-image { width: 100px; } }
-@media (max-width: 767px) { .rotating-image { width: 70px; } }
-@media (max-width: 480px) { .rotating-image { width: 50px; } }
