@@ -28,7 +28,7 @@
 <body>
     <img src="заповедник/фон.jpg" class="center-image" alt="Фоновое изображение">
 
-    <!-- Обычные кнопки (для ПК) -->
+    <!-- Обычные кнопки (остаются как были) -->
     <a href="навигация.html" class="image-button1">
         <img src="заповедник/кнопка1.jpg" alt="Навигация">
     </a>
@@ -51,7 +51,7 @@
         <img src="заповедник/кнопка6.jpg" alt="нашиживотные">
     </a>
     
-    <!-- Гамбургер меню для телефонов (только на главной) -->
+    <!-- Гамбургер меню для телефонов (скрыто на ПК) -->
     <div class="hamburger-menu">
         <button class="hamburger-btn" id="hamburgerBtn">
             <span class="hamburger-line"></span>
@@ -80,7 +80,6 @@
     </div>
     
     <script>
-        // Управление гамбургер-меню (только на главной)
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const dropdownMenu = document.getElementById('dropdownMenu');
         
@@ -89,7 +88,6 @@
                 e.stopPropagation();
                 dropdownMenu.classList.toggle('show');
                 
-                // Анимация гамбургера в крестик
                 const lines = document.querySelectorAll('.hamburger-line');
                 if (dropdownMenu.classList.contains('show')) {
                     lines[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
@@ -102,7 +100,6 @@
                 }
             });
             
-            // Закрытие меню при клике вне его
             document.addEventListener('click', function(event) {
                 if (!hamburgerBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
                     dropdownMenu.classList.remove('show');
@@ -113,7 +110,6 @@
                 }
             });
             
-            // Закрытие меню при клике на пункт
             document.querySelectorAll('.menu-item').forEach(item => {
                 item.addEventListener('click', function() {
                     dropdownMenu.classList.remove('show');
