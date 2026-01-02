@@ -7,8 +7,8 @@
     padding: 0;
     cursor: pointer;
     transition: transform 0.3s;
-    display: inline-block; /* важно для ссылок */
-    text-decoration: none; /* убрать подчёркивание */
+    display: inline-block;
+    text-decoration: none;
 }
 
 /* Ховер и актив для всех */
@@ -41,80 +41,30 @@
     .image-button1 img, .image-button2 img, 
     .image-button3 img, .image-button4 img, 
     .image-button6 img {
-        width: 130px; /* Размер для ПК */
+        width: 130px;
     }
     .image-button5 img {
-        width: 350px; /* Большая кнопка "назад" для ПК */
+        width: 350px;
     }
+    
     /* Высота для ПК */
     .image-button1, .image-button2, .image-button3, 
     .image-button4, .image-button6 {
-        top: 20px; /* Фиксированная высота для ПК */
-    }
-}
-
-/* Для планшетов (средние экраны) */
-@media (max-width: 1023px) and (min-width: 768px) {
-    .image-button1 img, .image-button2 img, 
-    .image-button3 img, .image-button4 img, 
-    .image-button6 img {
-        width: 100px; /* Чуть меньше */
-    }
-    .image-button5 img {
-        width: 280px;
-    }
-    /* Высота для планшетов */
-    .image-button1, .image-button2, .image-button3, 
-    .image-button4, .image-button6 {
-        top: 15px;
-    }
-}
-
-/* Для телефонов (маленькие экраны) */
-@media (max-width: 767px) {
-    .image-button1 img, .image-button2 img, 
-    .image-button3 img, .image-button4 img, 
-    .image-button6 img {
-        width: 60px; /* Маленькие для телефона */
-    }
-    .image-button5 img {
-        width: 200px;
+        top: 20px;
     }
     
-    /* Относительная высота для телефонов */
-    .image-button1, .image-button2, .image-button3, 
+    /* Показываем все кнопки на ПК */
+    .image-button1, .image-button2, .image-button3,
     .image-button4, .image-button6 {
-        top: 30px; /* 3% от высоты экрана */
+        display: inline-block;
     }
     
-    /* На телефоне делаем кнопки вертикально или ближе */
-    .image-button1 { left: 5%; }
-    .image-button2 { left: 25%; }
-    .image-button3 { left: 45%; }
-    .image-button4 { left: 65%; }
-    .image-button6 { left: 85%; }
-}
-
-/* Для очень маленьких телефонов */
-@media (max-width: 480px) {
-    .image-button1 img, .image-button2 img, 
-    .image-button3 img, .image-button4 img, 
-    .image-button6 img {
-        width: 50px;
-    }
-    .image-button5 img {
-        width: 180px;
+    /* Скрываем гамбургер на ПК */
+    .hamburger-menu {
+        display: none;
     }
     
-    /* Меньшая высота на очень маленьких экранах */
-    .image-button1, .image-button2, .image-button3, 
-    .image-button4, .image-button6 {
-        top: 20px; /* 2% от высоты экрана */
-    }
-}
-
-/* Только уникальные свойства позиционирования для ПК */
-@media (min-width: 768px) {
+    /* Позиционирование для ПК */
     .image-button1 { left: 26%; }
     .image-button2 { left: 36%; }
     .image-button3 { left: 46%; }
@@ -122,10 +72,165 @@
     .image-button6 { left: 66%; }
 }
 
-/* Для первой кнопки другой радиус */
-.image-button1 img { border-radius: 40px; }
+/* Для планшетов (средние экраны) */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .image-button1 img, .image-button2 img, 
+    .image-button3 img, .image-button4 img, 
+    .image-button6 img {
+        width: 100px;
+    }
+    .image-button5 img {
+        width: 280px;
+    }
+    
+    .image-button1, .image-button2, .image-button3, 
+    .image-button4, .image-button6 {
+        top: 15px;
+    }
+    
+    /* На планшетах тоже показываем все кнопки */
+    .image-button1, .image-button2, .image-button3,
+    .image-button4, .image-button6 {
+        display: inline-block;
+    }
+    
+    .hamburger-menu {
+        display: none;
+    }
+    
+    .image-button1 { left: 5%; }
+    .image-button2 { left: 25%; }
+    .image-button3 { left: 45%; }
+    .image-button4 { left: 65%; }
+    .image-button6 { left: 85%; }
+}
 
-/* Кнопка 5 (центр) - АДАПТИВНАЯ ВЫСОТА */
+/* ДЛЯ ТЕЛЕФОНОВ - ГАМБУРГЕР МЕНЮ */
+@media (max-width: 767px) {
+    /* Скрываем обычные кнопки на телефоне */
+    .image-button1, .image-button2, .image-button3,
+    .image-button4, .image-button6 {
+        display: none !important;
+    }
+    
+    /* Показываем гамбургер */
+    .hamburger-menu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+    
+    /* Стили гамбургера (три полоски) */
+    .hamburger-btn {
+        width: 50px;
+        height: 40px;
+        background: #2d5016;
+        border: 2px solid #8B4513;
+        border-radius: 10px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    
+    .hamburger-line {
+        width: 70%;
+        height: 4px;
+        background: white;
+        border-radius: 2px;
+        transition: 0.3s;
+    }
+    
+    /* Выпадающее меню */
+    .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 20px;
+        background: rgba(255, 248, 220, 0.95);
+        border-radius: 15px;
+        padding: 15px;
+        min-width: 200px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        border: 2px solid #8B4513;
+        z-index: 999;
+    }
+    
+    .dropdown-menu.show {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+    
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Кнопки в выпадающем меню */
+    .menu-item {
+        display: block;
+        width: 100%;
+        padding: 12px 15px;
+        margin: 5px 0;
+        background: #2d5016;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        text-align: left;
+        font-size: 16px;
+        font-family: Arial;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+    
+    .menu-item:hover {
+        background: #3a6530;
+        transform: translateX(5px);
+    }
+    
+    .menu-item img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        vertical-align: middle;
+        border-radius: 5px;
+    }
+    
+    /* Кнопка назад для телефона */
+    .image-button5 img {
+        width: 200px;
+    }
+    
+    .image-button5 {
+        top: 20px;
+    }
+}
+
+/* Для очень маленьких телефонов */
+@media (max-width: 480px) {
+    .hamburger-btn {
+        width: 45px;
+        height: 35px;
+    }
+    
+    .dropdown-menu {
+        min-width: 180px;
+        left: 10px;
+    }
+    
+    .image-button5 img {
+        width: 180px;
+    }
+}
+
+/* Кнопка 5 (центр) */
 .image-button5 {
     left: 50%;
     transform: translateX(-50%);
@@ -134,27 +239,15 @@
 
 /* Высота кнопки "назад" для разных устройств */
 @media (min-width: 1024px) {
-    .image-button5 {
-        top: 30px; /* Для ПК */
-    }
+    .image-button5 { top: 30px; }
 }
 
 @media (max-width: 1023px) and (min-width: 768px) {
-    .image-button5 {
-        top: 25px; /* Для планшетов */
-    }
+    .image-button5 { top: 25px; }
 }
 
 @media (max-width: 767px) {
-    .image-button5 {
-        top: 4vh; /* 4% от высоты экрана на телефоне */
-    }
-}
-
-@media (max-width: 480px) {
-    .image-button5 {
-        top: 3vh; /* 3% от высоты экрана на маленьких телефонах */
-    }
+    .image-button5 { top: 20px; }
 }
 
 .image-button5:hover {
@@ -165,53 +258,28 @@
     transform: translateX(-50%) scale(0.95);
 }
 
-/* Вращающееся изображение с адаптивной высотой */
+/* Вращающееся изображение */
 .rotating-image {
     animation: spinAndPulse 4s ease-in-out infinite;
     position: absolute;
-    top: 50%; /* Остаётся по центру */
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
     transform-origin: center center;
 }
 
-/* Анимация */
 @keyframes spinAndPulse {
-    0% {
-        transform: translate(-50%, -50%) rotate(0deg) scale(0.8);
-    }
-    50% {
-        transform: translate(-50%, -50%) rotate(180deg) scale(1.5);
-    }
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg) scale(0.8);
-    }
+    0% { transform: translate(-50%, -50%) rotate(0deg) scale(0.8); }
+    50% { transform: translate(-50%, -50%) rotate(180deg) scale(1.5); }
+    100% { transform: translate(-50%, -50%) rotate(360deg) scale(0.8); }
 }
 
-/* Размеры вращающегося изображения для разных устройств */
-@media (min-width: 1200px) {
-    .rotating-image {
-        width: 150px; /* Большой размер на ПК */
-    }
-}
+/* Размеры вращающегося изображения */
+@media (min-width: 1200px) { .rotating-image { width: 150px; } }
+@media (min-width: 768px) and (max-width: 1199px) { .rotating-image { width: 100px; } }
+@media (max-width: 767px) { .rotating-image { width: 70px; } }
+@media (max-width: 480px) { .rotating-image { width: 50px; } }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-    .rotating-image {
-        width: 100px; /* Средний размер */
-    }
-}
-
-@media (max-width: 767px) {
-    .rotating-image {
-        width: 70px; /* Маленький на телефоне */
-    }
-}
-
-@media (max-width: 480px) {
-    .rotating-image {
-        width: 50px; /* Очень маленький */
-    }
-
-}
-
+/* Для первой кнопки другой радиус */
+.image-button1 img { border-radius: 40px; }
